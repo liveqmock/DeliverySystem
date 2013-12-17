@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="abnormalOrderDao" class="com.bjtu.deliverysystem.dao.impl.AbnormalOrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="abnormalOrderService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.AbnormalOrderServiceImpl">
+                <property name="aod">
+                    <ref local="abnormalOrderDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="addAbnormalOrderAction" class="com.bjtu.deliverysystem.action.AddAbnormalOrderAction" lazy-init="false">
+        <property name="aos">
+            <ref local="abnormalOrderService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewAbnormalOrderAction" class="com.bjtu.deliverysystem.action.ViewAbnormalOrderAction" lazy-init="false">
+        <property name="aos">
+            <ref local="abnormalOrderService"/>
+        </property>
+    </bean>
+
+</beans>

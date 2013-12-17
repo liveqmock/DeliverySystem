@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="classDao" class="com.bjtu.deliverysystem.dao.impl.TransClassDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="tempDao" class="com.bjtu.deliverysystem.dao.impl.TempDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="carDao" class="com.bjtu.deliverysystem.dao.impl.CarDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="deliveryOrderDao" class="com.bjtu.deliverysystem.dao.impl.DeliveryOrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="classService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.TransClassServiceImpl">
+                <property name="classDao">
+                    <ref local="classDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="tempService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.TempServiceImpl">
+                <property name="tempDao">
+                    <ref local="tempDao"/>
+                </property>
+               
+            </bean>
+        </property>
+    </bean>
+    <bean id="deliveryOrderService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.DeliveryOrderServiceImpl">
+                <property name="deliveryOrderDao">
+                    <ref local="deliveryOrderDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="carService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.CarServiceImpl">
+                <property name="carDao">
+                    <ref local="carDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="viewClassListAction" class="com.bjtu.deliverysystem.action.ViewClassListAction" lazy-init="false">
+        <property name="classService">
+            <ref local="classService"/>
+        </property>
+    </bean>
+    
+    <bean id="addClassAction" class="com.bjtu.deliverysystem.action.AddClassAction" lazy-init="false">
+        <property name="classService">
+            <ref local="classService"/>
+        </property>
+        <property name="carService">
+            <ref local="carService"/>
+        </property>
+    </bean>
+    
+    <bean id="bindingAction" class="com.bjtu.deliverysystem.action.BindingAction" lazy-init="false">
+        <property name="classService">
+            <ref local="classService"/>
+        </property>
+        <property name="deliveryOrderService">
+            <ref local="deliveryOrderService"/>
+        </property>
+        <property name="tempService">
+            <ref local="tempService"/>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.AbnormalOrder" table="tb_abnormalorder">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="abnormalId" name="abnormalId" type="string"/>
+    <property column="orderNum" name="orderNum" type="string"/>
+    <property column="abnormalStatus" name="abnormalStatus" type="string"/>
+    <property column="abnormalTime" name="abnormalTime" type="string"/>
+    <property column="abnormalType" name="abnormalType" type="string"/>
+    <property column="abnormalSite1" name="abnormalSite1" type="string"/>
+    <property column="abnormalSite2" name="abnormalSite2" type="string"/>
+    <property column="suggest" name="suggest" type="string"/>
+    <property column="depart" name="depart" type="string"/>
+    <property column="principal" name="principal" type="string"/>
+    <property column="recordTime" name="recordTime" type="string"/>
+  </class>
+</hibernate-mapping>
+ 

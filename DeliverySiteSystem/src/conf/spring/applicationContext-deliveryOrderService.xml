@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="deliveryOrderDao" class="com.bjtu.deliverysystem.dao.impl.DeliveryOrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="dispatchSiteDao" class="com.bjtu.deliverysystem.dao.impl.DispatchSiteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="orderDao" class="com.bjtu.deliverysystem.dao.impl.OrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="orderService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.OrderServiceImpl">
+                <property name="orderDao">
+                    <ref local="orderDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="deliveryOrderService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.DeliveryOrderServiceImpl">
+                <property name="deliveryOrderDao">
+                    <ref local="deliveryOrderDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    
+    <bean id="dispatchSiteService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.DispatchSiteServiceImpl">
+                <property name="dispatchSiteDao">
+                    <ref local="dispatchSiteDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="addDeliveryOrderAction" class="com.bjtu.deliverysystem.action.AddDeliveryOrderAction" lazy-init="false">
+        <property name="deliveryOrderService">
+            <ref local="deliveryOrderService"/>
+        </property>
+        <property name="dispatchSiteService">
+            <ref local="dispatchSiteService"/>
+        </property>
+        <property name="orderService">
+            <ref local="orderService"/>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="itemDao" class="com.bjtu.deliverysystem.dao.impl.ItemDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="itemService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.ItemServiceImpl">
+                <property name="itemDao">
+                    <ref local="itemDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="goodDao" class="com.bjtu.deliverysystem.dao.impl.GoodDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="goodService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.GoodServiceImpl">
+                <property name="goodDao">
+                    <ref local="goodDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="addItemAction" class="com.bjtu.deliverysystem.action.AddItemAction" lazy-init="false">
+        <property name="itemService">
+            <ref local="itemService"/>
+        </property>
+        <property name="goodService">
+            <ref local="goodService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewItemListAction" class="com.bjtu.deliverysystem.action.ViewItemListAction" lazy-init="false">
+        <property name="itemService">
+            <ref local="itemService"/>
+        </property>
+    </bean>
+    
+    <bean id="getItemListToOrderAction" class="com.bjtu.deliverysystem.action.ViewItemListToOrderAction" lazy-init="false">
+        <property name="itemService">
+            <ref local="itemService"/>
+        </property>
+    </bean>
+
+</beans>

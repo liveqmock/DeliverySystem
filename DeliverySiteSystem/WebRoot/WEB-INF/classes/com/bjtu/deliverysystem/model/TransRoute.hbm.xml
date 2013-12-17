@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.TransRoute" table="tb_transRoute">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <list name="routelist" inverse="false" lazy="false">
+      <key column="id"></key>
+      <index column="transRouteIndex" />
+      <one-to-many class="com.bjtu.deliverysystem.model.BaseRoute"></one-to-many>
+    </list>
+    <one-to-one name="start" class="com.bjtu.deliverysystem.model.DispatchSite" lazy="false"/>
+    <one-to-one name="end" class="com.bjtu.deliverysystem.model.DispatchSite" lazy="false"/>
+  </class>
+</hibernate-mapping>

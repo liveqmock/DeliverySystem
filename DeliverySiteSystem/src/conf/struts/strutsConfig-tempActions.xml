@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    
+    <package name="tempJson" extends="json-default">
+        <action name="addTempAction" class="addTempAction" >
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        
+
+    </package>
+    <package name="tempServiceDefault" extends="struts-default">
+        <action name="viewTempListAction" class="viewTempListAction">
+            <result name="error">error.jsp</result>
+            <result name="success">affirmdelivery.jsp</result>
+        </action>
+        <action name="modifyTempAction" class="modifyTempAction" >
+            <result name="success" type="redirect">viewTempListAction</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+    </package>
+
+
+</struts>

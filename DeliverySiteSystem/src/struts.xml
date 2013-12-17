@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+    <include file="conf\struts\strutsConfig-userActions.xml" />
+    <include file="conf\struts\strutsConfig-orderActions.xml" />
+    <include file="conf\struts\strutsConfig-goodActions.xml" />
+    <include file="conf\struts\strutsConfig-itemActions.xml" />
+    <include file="conf\struts\strutsConfig-transClassActions.xml" />
+    <include file="conf\struts\strutsConfig-deliveryOrderActions.xml" />
+    <include file="conf\struts\strutsConfig-abnormalOrderActions.xml" />
+    <include file="conf\struts\strutsConfig-tempActions.xml" />
+</struts>

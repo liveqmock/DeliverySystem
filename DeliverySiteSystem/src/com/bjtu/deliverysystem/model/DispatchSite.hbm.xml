@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.DispatchSite" table="tb_dispatchSite">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="address" name="address" type="string"/>
+    <property column="siteNo" name="siteNo" type="string"/>
+    <property column="name" name="name" type="string"/>
+    <property column="level" name="level" type="integer"/>
+
+  </class>
+</hibernate-mapping>

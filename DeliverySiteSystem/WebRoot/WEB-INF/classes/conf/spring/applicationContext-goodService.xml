@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="goodDao" class="com.bjtu.deliverysystem.dao.impl.GoodDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="goodService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.GoodServiceImpl">
+                <property name="goodDao">
+                    <ref local="goodDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="viewGoodAction" class="com.bjtu.deliverysystem.action.ViewGoodAction" lazy-init="false">
+        <property name="goodService">
+            <ref local="goodService"/>
+        </property>
+    </bean>
+
+</beans>

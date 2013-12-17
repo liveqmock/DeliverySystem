@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.Temp" table="tb_temp">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="number" name="number" type="string"/>
+    <property column="goalSite" name="goalSite" type="string"/>
+    <property column="flag" name="flag" type="integer"/>
+    <property column="datatype" name="datatype" type="integer"/>
+  </class>
+</hibernate-mapping>

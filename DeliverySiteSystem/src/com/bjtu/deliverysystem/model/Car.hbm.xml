@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.Car" table="tb_car">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="carNum" name="carNum" type="string"/>
+    <property column="carType" name="carType" type="integer"/>
+    <property column="capability" name="capability" type="integer"/>
+    <property column="volume" name="volume" type="integer"/>
+  </class>
+</hibernate-mapping>

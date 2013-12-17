@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.User" table="tb_user">
+    <id column="uid" name="uid" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="email" name="email" type="string"/>
+    <property column="pwd" name="pwd" type="string"/>
+    <property column="nickname" name="nickname" type="string"/>
+    <property column="permission" name="permission" type="integer"/>
+    <one-to-one name="profile" class="com.bjtu.deliverysystem.model.UserProfile" lazy="false" cascade="all-delete-orphan"/>
+  </class>
+</hibernate-mapping>

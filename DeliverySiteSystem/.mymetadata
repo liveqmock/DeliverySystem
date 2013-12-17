@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="DeliverySiteSystem"
+  id="myeclipse.1337175798173"
+  context-root="/DeliverySiteSystem"
+  j2ee-spec="5.0"
+  archive="DeliverySiteSystem.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

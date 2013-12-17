@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="orderDao" class="com.bjtu.deliverysystem.dao.impl.OrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="orderService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.OrderServiceImpl">
+                <property name="orderDao">
+                    <ref local="orderDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="viewOrderAction" class="com.bjtu.deliverysystem.action.ViewOrderAction" lazy-init="false">
+        <property name="orderService">
+            <ref local="orderService"/>
+        </property>
+    </bean>
+    
+    <bean id="modifyOrderAction" class="com.bjtu.deliverysystem.action.ModifyOrderAction" lazy-init="false">
+        <property name="orderService">
+            <ref local="orderService"/>
+        </property>
+    </bean>
+
+
+</beans>

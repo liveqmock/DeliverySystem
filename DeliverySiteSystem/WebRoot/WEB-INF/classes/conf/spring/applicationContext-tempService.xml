@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="tempDao" class="com.bjtu.deliverysystem.dao.impl.TempDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="tempService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.TempServiceImpl">
+                <property name="tempDao">
+                    <ref local="tempDao"/>
+                </property>
+               
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="addTempAction" class="com.bjtu.deliverysystem.action.AddTempAction" lazy-init="false">
+        <property name="tempService">
+            <ref local="tempService"/>
+        </property>
+    </bean>
+    
+    <bean id="modifyTempAction" class="com.bjtu.deliverysystem.action.ModifyTempAction" lazy-init="false">
+         <property name="tempService">
+            <ref local="tempService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewTempListAction" class="com.bjtu.deliverysystem.action.ViewTempListAction" lazy-init="false">
+         <property name="tempService">
+            <ref local="tempService"/>
+        </property>
+    </bean>
+
+    
+
+</beans>

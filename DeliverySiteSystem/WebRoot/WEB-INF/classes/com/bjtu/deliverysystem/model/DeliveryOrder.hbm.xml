@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.DeliveryOrder" table="tb_deliveryOrder">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <list name="orderList" inverse="false" lazy="false">
+      <key column="id"></key>
+      <index column="deliveryOrderIndex" />
+      <one-to-many class="com.bjtu.deliverysystem.model.Order"></one-to-many>
+    </list>
+    <property column="deliveryNumber" name="deliveryNumber" type="string"/>
+    <property column="deliveryTime" name="deliveryTime" type="timestamp"/>
+    <one-to-one name="lastSite" class="com.bjtu.deliverysystem.model.DispatchSite" lazy="false"/>
+    <one-to-one name="arriveSite" class="com.bjtu.deliverysystem.model.DispatchSite" lazy="false"/>
+    <one-to-one name="ruote" class="com.bjtu.deliverysystem.model.TransRoute" lazy="false"/>
+  </class>
+</hibernate-mapping>

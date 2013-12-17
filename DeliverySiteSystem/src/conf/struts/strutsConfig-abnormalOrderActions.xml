@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+    <package name="abnormalOrderServiceDefault" extends="struts-default">
+    
+        <action name="addAbnormalOrderAction" class="addAbnormalOrderAction">
+            <result type="redirect">viewAbnormalOrderAction</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="viewAbnormalOrderAction" class="viewAbnormalOrderAction">
+            <result name="success">abnormalOrderCheck.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+    </package>
+</struts>
