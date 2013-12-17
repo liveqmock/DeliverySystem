@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="userDao" class="com.bjtu.deliverysystem.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <bean id="profileDao" class="com.bjtu.deliverysystem.dao.impl.UserProfileDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="userService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.UserServiceImpl">
+                <property name="userDao">
+                    <ref local="userDao"/>
+                </property>
+                <property name="profileDao">
+                    <ref local="profileDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="registAction" class="com.bjtu.deliverysystem.action.RegistAction" lazy-init="false">
+        <property name="userService">
+            <ref local="userService"/>
+        </property>
+    </bean>
+
+    <bean id="loginAction" class="com.bjtu.deliverysystem.action.LoginAction" lazy-init="false">
+        <property name="userService">
+            <ref local="userService"/>
+        </property>
+    </bean>
+
+    <bean id="viewUserAction" class="com.bjtu.deliverysystem.action.ViewUserAcion" lazy-init="false">
+        <property name="userService">
+            <ref local="userService"/>
+        </property>
+    </bean>
+
+    <bean id="modifyUserAction" class="com.bjtu.deliverysystem.action.ModifyUserAction" lazy-init="false">
+        <property name="userService">
+            <ref local="userService"/>
+        </property>
+    </bean>
+    
+    <bean id="logoutAction" class="com.bjtu.deliverysystem.action.LogoutAction" lazy-init="false">
+    </bean>
+
+</beans>

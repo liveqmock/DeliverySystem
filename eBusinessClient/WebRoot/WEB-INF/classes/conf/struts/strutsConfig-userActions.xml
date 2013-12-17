@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <package name="user-common-json" extends="json-default">
+
+        <action name="loginAction" class="loginAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="registAction" class="registAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="checkUsernameAction" class="registAction"  method="checkUsername">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="viewUserAction" class="viewUserAction">
+            <result name="error">/error.jsp</result>
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="login">/user/login.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="common-default" extends="struts-default">
+
+        <action name="beginRegistAction" class="registAction"  method="beginRegist">
+            <result name="success">/user/regist.jsp</result>
+        </action>
+
+        <action name="beginLoginAction" class="loginAction"  method="beginLogin">
+            <result name="success">/user/login.jsp</result>
+        </action>
+        
+        <action name="beginModifyUserAction" class="modifyUserAction"  method="beginModifyUser">
+            <result name="success">/user/viewUser.jsp</result>
+        </action>
+
+        <action name="*" class="loginAction" method="beginLogin" >
+            <result name="success">index.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="user-operation" extends="struts-default">
+
+        <interceptors>
+
+            <interceptor name="checkLogin" class="com.yilee.common.interceptor.CheckLogin"></interceptor>
+
+            <interceptor-stack name="userDefaultStcak">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="checkLogin"></interceptor-ref>
+            </interceptor-stack>
+
+        </interceptors>
+
+        <default-interceptor-ref name="userDefaultStcak"></default-interceptor-ref>
+
+        <action name="logoutAction" class="logoutAction">
+            <result name="success">/user/login.jsp</result>
+            <result name="login">/user/login.jsp</result>
+        </action>
+
+        <action name="modifyUserAction" class="modifyUserAction" >
+            <result name="success">/index.jsp</result>
+            <result name="login">/user/login.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

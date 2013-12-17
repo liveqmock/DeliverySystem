@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.Good" table="good">
+    <id column="goodId" name="goodId" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="name" name="name" type="string"/>
+    <property column="gender" name="gender" type="string"/>
+    <property column="price" name="price" type="double"/>
+    <property column="imgsrc" name="imgsrc" type="string"/>
+    <property column="owner" name="owner" type="string"/>
+  </class>
+</hibernate-mapping>

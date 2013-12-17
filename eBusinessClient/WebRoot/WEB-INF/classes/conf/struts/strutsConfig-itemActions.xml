@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+      <package name="itemDefault" extends="struts-default">
+        <action name="viewItemListAction" class="viewItemListAction" >
+            <result name="success">step1.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>  
+         <action name="getItemListToOrderAction" class="getItemListToOrderAction" >
+            <result name="success">step3.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>    
+    </package>
+    
+    <package name="itemJson" extends="json-default">
+        <action name="addItemAction" class="addItemAction" >
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <action name="deleteItemAction" class="deleteItemAction" >
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+            <result name="error">error.jsp</result>
+        </action>
+
+    </package>
+
+
+</struts>

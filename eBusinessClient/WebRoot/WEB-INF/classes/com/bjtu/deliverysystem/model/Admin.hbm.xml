@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.Admin" table="tb_admin">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="account" name="account" type="string"/>
+    <property column="pwd" name="pwd" type="string"/>
+    <property column="permission" name="permission" type="integer"/>
+    <property column="dispatchSite" name="dispatchSite" type="string"/>
+  </class>
+</hibernate-mapping>
