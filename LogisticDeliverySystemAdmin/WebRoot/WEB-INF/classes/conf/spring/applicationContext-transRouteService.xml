@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="transRouteDao" class="com.bjtu.deliverysystem.dao.impl.TransRouteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="transRouteService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.TransRouteServiceImpl">
+                <property name="transRouteDao">
+                    <ref local="transRouteDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="addRouteAction" class="com.bjtu.deliverysystem.action.AddRouteAction" lazy-init="false">
+        <property name="transRouteService">
+            <ref local="transRouteService"/>
+        </property>
+    </bean>
+    
+    <bean id="checkRoutesAction" class="com.bjtu.deliverysystem.action.CheckRoutesAction" lazy-init="false">
+    	<property name="transRouteService">
+    		<ref local="transRouteService"/>
+    	</property>
+    </bean>
+    
+    <bean id="removeRoutesAction" class="com.bjtu.deliverysystem.action.RemoveRouteAction" lazy-init="false">
+    	<property name="transRouteService">
+    		<ref local="transRouteService"></ref>
+    	</property>
+    </bean>
+    
+    
+
+</beans>

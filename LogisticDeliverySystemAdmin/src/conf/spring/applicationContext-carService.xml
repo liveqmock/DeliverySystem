@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="carDao" class="com.bjtu.deliverysystem.dao.impl.CarDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="carService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.CarServiceImpl">
+                <property name="carDao">
+                    <ref local="carDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="addCarAction" class="com.bjtu.deliverysystem.action.AddCarAction" lazy-init="false">
+        <property name="carService">
+            <ref local="carService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewCarAction" class="com.bjtu.deliverysystem.action.ViewCarAction" lazy-init="false">
+        <property name="carService">
+            <ref local="carService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewAllCarAction" class="com.bjtu.deliverysystem.action.ViewAllCarAction" lazy-init="false">
+        <property name="carService">
+            <ref local="carService"/>
+        </property>
+    </bean>
+    
+    <bean id="deleteCarAction" class="com.bjtu.deliverysystem.action.DeleteCarAction" lazy-init="false">
+        <property name="carService">
+            <ref local="carService"/>
+        </property>
+    </bean>
+
+</beans>

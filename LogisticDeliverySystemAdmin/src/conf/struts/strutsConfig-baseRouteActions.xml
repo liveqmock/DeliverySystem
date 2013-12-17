@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="baseRouteServiceDefault" extends="struts-default">
+        <action name="viewBaseRouteAction" class="viewBaseRouteAction">
+           <result name="input">/UserManageWeb/basic_root.jsp</result>
+           <result name="success">/UserManageWeb/basic_root.jsp</result>    
+        </action>
+        <action name="addBaseRouteAction" class="addBaseRouteAction">
+        	<result name="input">/UserManageWeb/add_basic.jsp</result>
+        	<result name="success">/UserManageWeb/add_basic.jsp</result>
+        </action>
+        <action name="deleteBaseRouteAction" class="deleteBaseRouteAction">
+        	<result name="input">/UserManageWeb/basic_root.jsp</result>
+        	<result name="success" type="redirect">viewBaseRouteAction</result>
+        </action>
+        
+    </package>
+</struts>

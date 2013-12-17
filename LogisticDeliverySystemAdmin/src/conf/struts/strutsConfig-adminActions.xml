@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+      <package name="adminServiceDefault" extends="struts-default">
+        <action name="viewAdminAction" class="viewAdminAction" >
+            <result name="success">/UserManageWeb/viewUser.jsp</result>
+            <result name="error">error.jsp</result>
+        </action> 
+        
+        <action name="addAdminAction" class="addAdminAction" >
+            <result name="success" type="redirect">viewAllAdminAction</result>
+            <result name="error">error.jsp</result>
+        </action> 
+        
+        <action name="deleteAdminAction" class="deleteAdminAction" >
+            <result name="success" type="redirect">viewAllAdminAction</result>
+            <result name="error">error.jsp</result>
+        </action> 
+        
+        <action name="sendAdminListAction" class="sendAdminListAction">
+            <result name="success">/UserManageWeb/updateUser1.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="updateAdminAction" class="updateAdminAction">
+            <result name="success" type="redirect">viewAllAdminAction</result>
+            <result name="error">error.jsp</result>
+        <!--<result name="success">/UserManageWeb/updateUser1.jsp</result>
+        --></action>
+        
+        <action name="viewAllAdminAction" class="viewAllAdminAction">
+           <result name="success">/UserManageWeb/viewUser.jsp</result>
+           <result name="error">error.jsp</result>
+        </action>
+    </package>
+</struts>

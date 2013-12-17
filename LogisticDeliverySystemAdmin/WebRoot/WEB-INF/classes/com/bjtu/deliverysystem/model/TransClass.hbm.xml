@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjtu.deliverysystem.model">
+  <class name="com.bjtu.deliverysystem.model.TransClass" table="tb_transClass">
+    <id column="id" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="classNum" name="classNum" type="string"/>
+    <property column="startTime" name="startTime" type="timestamp"/>
+    <property column="arriveTime" name="arriveTime" type="timestamp"/>
+    <property column="classStatus" name="classStatus" type="integer"/>
+    <one-to-one name="car" class="com.bjtu.deliverysystem.model.Car" lazy="false"/>
+    <one-to-one name="deliveryorder" class="com.bjtu.deliverysystem.model.DeliveryOrder" lazy="false"/>
+  </class>
+</hibernate-mapping>

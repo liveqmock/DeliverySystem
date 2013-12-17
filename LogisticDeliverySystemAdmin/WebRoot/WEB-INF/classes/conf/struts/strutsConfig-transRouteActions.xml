@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <package name="transRouteServiceDefault" extends="json-default">
+        <action name="addRouteAction" class="com.bjtu.deliverysystem.action.AddRouteAction" method="addTransRoute">
+        	<result type="json"></result>
+        </action>
+        <action name="checkRoutesAction" class="checkRoutesAction" method="checkRoutes">
+        	<result type="json"></result>
+        </action>
+        <action name="removeRoutesAction" class="removeRoutesAction" method="removeRoute">
+        	<result type="json"></result>
+        </action>
+        <action name="getRoutesAction" class="com.bjtu.deliverysystem.action.GetRouteAction" method="findAllRoutes">
+    		<result type="json">
+    		</result>
+    	</action>
+    </package>
+
+</struts>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="turnDao" class="com.bjtu.deliverysystem.dao.impl.TurnDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="carDao" class="com.bjtu.deliverysystem.dao.impl.CarDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="turnService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.TurnServiceImpl">
+                <property name="turnDao">
+                    <ref local="turnDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="carService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.CarServiceImpl">
+                <property name="carDao">
+                    <ref local="carDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="addTurnAction" class="com.bjtu.deliverysystem.action.AddTurnAction" lazy-init="false">
+        <property name="turnService">
+            <ref local="turnService"/>
+        </property>
+        <property name="carService">
+        	<ref bean="carService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewTurnAction" class="com.bjtu.deliverysystem.action.ViewTurnAction" lazy-init="false">
+    	<property name="turnService">
+    		<ref local="turnService"/>
+    	</property>
+    </bean>
+
+</beans>

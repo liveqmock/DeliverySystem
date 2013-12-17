@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="baseRouteDao" class="com.bjtu.deliverysystem.dao.impl.BaseRouteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="baseRouteService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.BaseRouteServiceImpl">
+                <property name="baseRouteDao">
+                    <ref local="baseRouteDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="viewBaseRouteAction" class="com.bjtu.deliverysystem.action.ViewBaseRouteAction" lazy-init="false">
+        <property name="baseRouteService">
+            <ref local="baseRouteService"/>
+        </property>
+    </bean>
+    
+    <bean id="addBaseRouteAction" class="com.bjtu.deliverysystem.action.AddBaseRouteAction" lazy-init="false">
+        <property name="baseRouteService">
+            <ref local="baseRouteService"/>
+        </property>      
+    </bean>
+    
+    <bean id="deleteBaseRouteAction" class="com.bjtu.deliverysystem.action.DeleteBaseRouteAction" lazy-init="false">
+        <property name="baseRouteService">
+            <ref local="baseRouteService"/>
+        </property>
+    </bean>
+    
+    
+	<bean id="getRoutesAction" class="com.bjtu.deliverysystem.action.GetRouteAction" lazy-init="false">
+        <property name="baseRouteService">
+            <ref local="baseRouteService"/>
+        </property>
+    </bean>
+</beans>

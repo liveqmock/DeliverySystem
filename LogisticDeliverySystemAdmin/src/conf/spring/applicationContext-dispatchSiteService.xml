@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+    <bean id="dispatchSite" class="com.bjtu.deliverysystem.dao.impl.DispatchSiteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="dispatchSiteService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.DispatchSiteServiceImpl">
+                <property name="dsd">
+                    <ref local="dispatchSite"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+    <bean id="addDispatchSiteAction" class="com.bjtu.deliverysystem.action.AddDispatchSiteAction" lazy-init="false">
+        <property name="dss">
+            <ref local="dispatchSiteService"/>
+        </property>
+    </bean>
+    
+    <bean id="vewDispatchSiteAction" class="com.bjtu.deliverysystem.action.ViewDispatchSiteAction" lazy-init="false">
+        <property name="dss">
+            <ref local="dispatchSiteService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewAllDispatchSiteAction" class="com.bjtu.deliverysystem.action.ViewAllDispatchSiteAction" lazy-init="false">
+        <property name="dss">
+            <ref local="dispatchSiteService"/>
+        </property>
+    </bean>
+    
+    <bean id="deleteDispatchSiteAction" class="com.bjtu.deliverysystem.action.DeleteDispatchSiteAction" lazy-init="false">
+        <property name="dss">
+            <ref local="dispatchSiteService"/>
+        </property>
+    </bean>
+    
+    <bean id="updateDispatchSiteAction" class="com.bjtu.deliverysystem.action.UpdateDispatchSiteAction" lazy-init="false">
+        <property name="dss">
+            <ref local="dispatchSiteService"/>
+        </property>
+    </bean>
+    
+    <bean id="updateSaveDispatchSiteAction" class="com.bjtu.deliverysystem.action.UpdateSaveDispatchSiteAction" lazy-init="false">
+        <property name="dss">
+            <ref local="dispatchSiteService"/>
+        </property>
+    </bean>
+    
+    <bean id="getSitesAction" class="com.bjtu.deliverysystem.action.GetSitesAction" lazy-init="false">
+    	<property name="dispatchSiteService">
+    		<ref local="dispatchSiteService"/>
+    	</property>
+    </bean>
+
+</beans>

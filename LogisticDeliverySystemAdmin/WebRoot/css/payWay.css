@@ -1,0 +1,276 @@
+#shipping_single .paytype{
+	margin-top:20px;
+}
+#shipping_single .paytype #paytype_balance_info{
+	margin-bottom:10px;
+}
+#shipping_single .paytype #paytype_balance_info{
+	margin-bottom:10px;
+}
+#shipping_single .paytype #paytype_balance_info p{
+	margin:5px 0 20px 0;
+}
+#cart .paytype .btn_pink_big{
+    float: left;
+    margin-top:15px;
+    color:#fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+#cart .paytype .btn_pink_big:hover{
+    text-decoration: none;
+}
+#cart .cart_left .option .paytype_balance_info{
+    margin-bottom: 20px;
+}
+#cart .cart_left .option .content .bold,#cart .cart_left .option .paytype_balance_info .money{
+    font-family: Helvetica, arial, sans-serif;
+}
+#cart .paytype .title{
+    font-size:14px;
+    font-weight:bold;
+    line-height:30px;
+    color: #333;
+}
+#cart #paytype_balance_info{
+    margin-top:10px;
+    text-align: right;
+    font-size: 14px;
+    padding-right: 26px;
+}
+#cart .paytype #paytype_balance_info span{
+    color:#ED145B;
+}
+#paytype_balance_info font{
+    font-family: Helvetica, arial, sans-serif;
+}
+#cart .paytype .btn_pink_big{
+    float: left;
+    margin-top:15px;
+    color:#fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+#cart .paytype .btn_pink_big:hover{
+    text-decoration: none;
+}
+.btn_pink_big{
+    float: left;
+    display: block;
+    width: 113px;
+    height: 41px;
+    line-height: 40px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background: url(../images/btn_pink_big.jpg) 0 0 no-repeat transparent;
+}
+.confirm_pay .btn_pink_big{
+    float: left;
+    border: none;
+    color:#fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#cart .cart_products table .btn_pink_big{
+    color:#fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+#cart .cart_products table .btn_grey_small:hover,#cart .cart_products table .btn_pink_big:hover{
+    text-decoration: none;
+}
+#cart .pay_status .info p .btn_pink_big{
+    float:left;
+    color:#fff;
+    margin-left:30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#cart .pay_status .info p .btn_pink_big:hover{
+    text-decoration: none;
+}
+.btn_grey_mid{
+    float: left;
+    display: block;
+    width: 103px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    background: url(../images/btn_grey_mid.jpg) 0 0 no-repeat transparent;
+}
+#cart .confirm_pay{
+    margin-top:20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    _zoom:1;
+}
+/*gateway*/
+.gateway_list{
+    background: #fafafa;
+    padding:15px 24px;
+}
+.gateway_list li{
+    float:left;
+    width:176px;
+    *width:185px;
+    display:block;
+    height: 40px;
+    margin-bottom: 20px;
+}
+.gateway_list li.desc{
+    width: 600px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #959595;
+}
+.gateway_list li.desc a{
+    font-size: 12px;
+}
+.gateway_list li.type_name{
+    width: 860px;
+    border-top: 1px dashed #333;
+    height: 30px;
+    line-height: 50px;
+    color: #959595;
+    font-size: 12px;
+}
+.gateway_list li.type_name b{
+    color:#333;
+}
+.gateway_list li input{
+    float:left;
+    margin: 15px 10px 0 0;
+}
+.gateway_list li label{
+    float:left;
+    background: url(../images/gateway_bg.png);
+    height: 38px;
+    width:130px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.gateway_list li.selected label{
+    border-color: #ed145b;
+}
+.gateway_list li .Alipay{
+    background-position: 0px 0px;
+}
+.gateway_list li .Alipay_CCB-MOTO-CREDIT{
+    width:149px;
+    background-position: 0px -120px;
+}
+.gateway_list li .Alipay_ICBC-MOTO-CREDIT{
+    width:149px;
+    background-position: 0px -160px;
+}
+.gateway_list li .Alipay_BOC-MOTO-CREDIT{
+    width:149px;
+    background-position: 0px -200px;
+}
+.gateway_list li .Alipay_ICBCB2C{
+    background-position: 0px -240px;
+}
+.gateway_list li .Alipay_CCB{
+    background-position: 0px -280px;
+}
+.gateway_list li .Alipay_BOCB2C{
+    background-position: 0px -320px;
+}
+.gateway_list li .Alipay_CMB{
+    background-position: 0px -360px;
+}
+.gateway_list li .Alipay_COMM{
+    background-position: 0px -400px;
+}
+.gateway_list li .Alipay_ABC{
+    background-position: 0px -440px;
+}
+.gateway_list li .Alipay_PSBC-DEBIT{
+    background-position: 0px -480px;
+}
+.gateway_list li .Alipay_CITIC{
+    background-position: 0px -520px;
+}
+.gateway_list li .Alipay_CIB{
+    background-position: 0px -560px;
+}
+.gateway_list li .Alipay_SPDB{
+    background-position: 0px -600px;
+}
+.gateway_list li .Alipay_CMBC{
+    background-position: 0px -640px;
+}
+.gateway_list li .Alipay_CEBBANK{
+    background-position: 0px -680px;
+}
+.gateway_list li .Alipay_NBBANK{
+    background-position: 0px -720px;
+}
+.gateway_list li .Alipay_SDB{
+    background-position: 0px -760px;
+}
+.gateway_list li .Alipay_BJRCB{
+    background-position: 0px -800px;
+}
+.gateway_list li .Alipay_SPABANK{
+    background-position: 0px -840px;
+}
+.gateway_list li .Alipay_GDB{
+    background-position: 0px -880px;
+}
+.gateway_list li .COD{
+	background-position:0px -920px;
+}
+.gateway_list li .Tenpay_0{
+    background-position: 0px -40px;
+}
+.gateway_list li .Tenpay_1001{
+    background-position: 0px -360px;
+}
+.gateway_list li .Tenpay_1002{
+    background-position: 0px -240px;
+}
+.gateway_list li .Tenpay_1003{
+    background-position: 0px -280px;
+}
+.gateway_list li .Tenpay_1004{
+    background-position: 0px -600px;
+}
+.gateway_list li .Tenpay_1005{
+    background-position: 0px -440px;
+}
+.gateway_list li .Tenpay_1006{
+    background-position: 0px -640px;
+}
+.gateway_list li .Tenpay_1008{
+    background-position: 0px -760px;
+}
+.gateway_list li .Tenpay_1009{
+    background-position: 0px -560px;
+}
+.gateway_list li .Tenpay_1010{
+    background-position: 0px -840px;
+}
+.gateway_list li .Tenpay_1020{
+    background-position: 0px -400px;
+}
+.gateway_list li .Tenpay_1021{
+    background-position: 0px -520px;
+}
+.gateway_list li .Tenpay_1022{
+    background-position: 0px -680px;
+}
+.gateway_list li .Tenpay_1027{
+    background-position: 0px -880px;
+}
+.gateway_list li .Tenpay_1052{
+    background-position: 0px -320px;
+}
+
+.gateway_list li .Cmpay{
+    background-position: 0px -80px;
+}
+/*gateway end*/

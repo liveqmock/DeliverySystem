@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "/WEB-INF/dtd/spring-beans.dtd">
+<beans default-lazy-init="true">
+
+
+    <bean id="adminDao" class="com.bjtu.deliverysystem.dao.impl.AdminDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="adminService" parent="transactionProxy">
+        <property name="target">
+            <bean class="com.bjtu.deliverysystem.service.impl.AdminServiceImpl">
+                <property name="adminDao">
+                    <ref local="adminDao"/>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="viewAdminAction" class="com.bjtu.deliverysystem.action.ViewAdminAction" lazy-init="false">
+        <property name="adminService">
+            <ref local="adminService"/>
+        </property>
+    </bean>
+    
+    <bean id="addAdminAction" class="com.bjtu.deliverysystem.action.AddAdminAction" lazy-init="false">
+        <property name="adminService">
+            <ref local="adminService"/>
+        </property>
+    </bean>
+    
+    <bean id="deleteAdminAction" class="com.bjtu.deliverysystem.action.DeleteAdminAction" lazy-init="false">
+        <property name="adminService">
+            <ref local="adminService"/>
+        </property>
+    </bean>
+    
+    <bean id="sendAdminListAction" class="com.bjtu.deliverysystem.action.SendAdminListAction" lazy-init="false">
+        <property name="adminService">
+            <ref local="adminService"/>
+        </property>
+    </bean>
+    
+    <bean id="updateAdminAction" class="com.bjtu.deliverysystem.action.UpdateAdminAction" lazy-init="false">
+        <property name="adminService">
+            <ref local="adminService"/>
+        </property>
+    </bean>
+    
+    <bean id="viewAllAdminAction" class="com.bjtu.deliverysystem.action.ViewAllAdminAction" lazy-init="false">
+        <property name="adminService">
+            <ref local="adminService"/>
+        </property>
+    </bean>
+
+</beans>

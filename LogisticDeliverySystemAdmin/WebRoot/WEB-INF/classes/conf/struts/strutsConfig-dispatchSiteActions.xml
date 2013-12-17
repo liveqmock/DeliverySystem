@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <package name="dispatchSiteServiceDefault" extends="struts-default">
+    
+        <action name="addDispatchSiteAction" class="addDispatchSiteAction">
+            <result name="error">error.jsp</result>
+            <result name="success">/UserManageWeb/addDispatchSite.jsp</result>
+        </action>
+        <action name="viewDispatchSiteAction" class="vewDispatchSiteAction">
+            <result name="error">error.jsp</result>
+            <result name="success">/UserManageWeb/viewDispatchSite.jsp</result>
+        </action>
+        <action name="deleteDispatchSiteAction" class="deleteDispatchSiteAction">
+            <result name="error">error.jsp</result>
+            <result name="success" type="redirect">viewAllDispatchSiteAction</result>
+        </action>
+        <action name="viewAllDispatchSiteAction" class="viewAllDispatchSiteAction">
+            <result name="error">error.jsp</result>
+            <result name="success">/UserManageWeb/viewDispatchSite.jsp</result>
+        </action>
+        <action name="updateDispatchSiteAction" class="updateDispatchSiteAction">
+            <result name="error">error.jsp</result>
+            <result name="success">/UserManageWeb/updateDispatchSite.jsp</result>
+        </action>
+        <action name="updateSaveDispatchSiteAction" class="updateSaveDispatchSiteAction">
+            <result name="error">error.jsp</result>
+            <result name="success" type="redirect">viewAllDispatchSiteAction</result>
+        </action>      
+        
+    </package>
+    <package name="dispatchSiteServiceBasic" extends="json-default">
+    	<action name="getSitesAction" class="getSitesAction" method="getSites">
+    		<result type="json"></result>
+    	</action>
+    </package>
+</struts>
